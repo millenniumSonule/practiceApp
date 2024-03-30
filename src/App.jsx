@@ -11,6 +11,7 @@ function App() {
     event.preventDefault();
     firstName.length > 0 && lastName.length > 0 ? setData([...data, {firstName: firstName, lastName:lastName}]) : alert('enter something');
     setFirstName('');
+    setLastName('');
   };
   useEffect(() => {
     // alert(data);
