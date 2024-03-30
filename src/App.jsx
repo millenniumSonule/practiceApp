@@ -9,8 +9,8 @@ function App() {
 
   const handleForm = (event) => {
     event.preventDefault();
-    setData([...data, firstName]);
-
+    firstName.length > 0 && lastName.length > 0 ? setData([...data, {firstName: firstName, lastName:lastName}]) : alert('enter something');
+    setFirstName('');
   };
   useEffect(() => {
     // alert(data);
@@ -53,7 +53,7 @@ function App() {
       <p>OUTPUT :</p>
       <ul>
           {data.map((item,index)=>(
-              <li key={index}>{item}</li>
+              <li key={index}>{item.firstName + ' ' + item.lastName}</li>
           ))}
       </ul>
     </div>
