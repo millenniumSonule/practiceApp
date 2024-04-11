@@ -26,7 +26,11 @@ function App() {
     setLastName(event.target.value);
 
   };
-
+  const deleteElement = (index,item) => {
+      alert(`deleted item ${item.firstName} ${item.lastName} at index ${index}`)
+      const newData = [...data.slice(0, index), ...data.slice(index + 1)];
+      setData(newData);
+  }
   return (
     <div className="abc">
       <form onSubmit={handleForm}>
@@ -54,7 +58,10 @@ function App() {
       <p>OUTPUT :</p>
       <ul>
           {data.map((item,index)=>(
-              <li key={index}>{item.firstName + ' ' + item.lastName}</li>
+             <div className="element">
+               <li key={index}>{item.firstName + ' ' + item.lastName}</li>
+                <button onClick={ ()=> deleteElement(index,item)}> Delete</button>
+             </div>
           ))}
       </ul>
     </div>
